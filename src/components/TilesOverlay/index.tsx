@@ -14,7 +14,7 @@ function useStripeCount(stripeWidth = 64) {
     return Math.ceil(width / stripeWidth);
 }
 
-export function BillboardTilesOverlay() {
+export default function TilesOverlay() {
     const stripeWidth = 32;
     const count = useStripeCount(stripeWidth);
 

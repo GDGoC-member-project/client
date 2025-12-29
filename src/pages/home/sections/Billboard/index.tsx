@@ -1,11 +1,11 @@
+import TilesOverlay from "@/components/TilesOverlay";
 import BillboardBackground from "./Background";
-import { BillboardTilesOverlay } from "./TilesOverlay";
 
 export default function Billboard() {
     return (
         <section className="relative w-full h-150 overflow-x-hidden">
             <BillboardBackground />
-            <BillboardTilesOverlay />
+            <TilesOverlay />
 
             <div className="relative z-20 grid place-items-center h-full text-center">
                 <div className="flex flex-col gap-2">
