@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-    @apply font-pretendard-variable;
+    @apply font-pretendard-variable bg-background text-white;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -27,4 +27,84 @@ http://scripts.sil.org/OFL
 
 @theme {
     --font-pretendard-variable: "Pretendard Variable", sans-serif;
+}
+
+@theme {
+    --color-background: #121212;
+    --color-grey-900: #1d1d1d;
+    --color-grey-800: #3a4046;
+    --color-grey-700: #50575d;
+    --color-grey-600: #636a71;
+    --color-grey-500: #80868d;
+    --color-grey-400: #9ca2a9;
+    --color-grey-300: #bec2c8;
+    --color-grey-200: #dce0e4;
+    --color-grey-100: #edeef1;
+    --color-grey-50: #f8f9fb;
+}
+
+@layer utilities {
+    .font-title01-medium {
+        @apply font-pretendard-variable text-7xl font-medium leading-tight tracking-tight;
+    }
+
+    .font-title03-medium {
+        @apply font-pretendard-variable text-5xl font-medium leading-tight tracking-tight;
+    }
+
+    .font-head01-medium {
+        @apply font-pretendard-variable text-3xl font-medium leading-10 tracking-tight;
+    }
+
+    .font-head01-regular {
+        @apply font-pretendard-variable text-3xl font-normal leading-10 tracking-tight;
+    }
+
+    .font-head02-medium {
+        @apply font-pretendard-variable text-2xl font-medium leading-8 tracking-tight;
+    }
+
+    .font-head02-regular {
+        @apply font-pretendard-variable text-2xl font-normal leading-8 tracking-tight;
+    }
+
+    .font-head03-medium {
+        @apply font-pretendard-variable text-xl font-medium leading-8 tracking-tight;
+    }
+
+    .font-head03-regular {
+        @apply font-pretendard-variable text-xl font-normal leading-8 tracking-tight;
+    }
+
+    .font-body01-medium {
+        @apply font-pretendard-variable text-xl font-medium leading-7 tracking-tight;
+    }
+
+    .font-body01-regular {
+        @apply font-pretendard-variable text-xl font-normal leading-7 tracking-tight;
+    }
+
+    .font-body02-medium {
+        @apply font-pretendard-variable text-lg font-medium leading-6 tracking-tight;
+    }
+
+    .font-body02-regular {
+        @apply font-pretendard-variable text-lg font-normal leading-6 tracking-tight;
+    }
+
+    .font-body03-medium {
+        @apply font-pretendard-variable text-base font-medium leading-6 tracking-tight;
+    }
+
+    .font-body03-regular {
+        @apply font-pretendard-variable text-base font-normal leading-6 tracking-tight;
+    }
+
+    .font-body04-medium {
+        @apply font-pretendard-variable text-sm font-medium leading-5 tracking-tight;
+    }
+
+    .font-body04-regular {
+        @apply font-pretendard-variable text-sm font-normal leading-5 tracking-tight;
+    }
 }
