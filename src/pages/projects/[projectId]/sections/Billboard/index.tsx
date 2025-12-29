@@ -1,7 +1,7 @@
 import ContentBillboard from "@/components/ContentBillboard";
 import TeamRoleCapacityIndicator from "@/components/TeamRoleCapacityIndicator";
 
-export default function Billboard() {
+export default function Billboard({ projectId }: { projectId?: string }) {
     return (
         <ContentBillboard>
             <div className="w-full max-w-lg flex flex-col gap-8">
@@ -14,7 +14,7 @@ export default function Billboard() {
 
                     <div className="flex flex-col gap-2">
                         <h1 className="font-title03-medium">제목입니다</h1>
-                        <h2 className="font-body01-regular">내용입니다 내용입니다 내용입니다</h2>
+                        <h2 className="font-body01-regular">{projectId}</h2>
                     </div>
                 </div>
 
