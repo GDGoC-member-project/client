@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import type { Member } from "@/types/people";
-import MemberCard from "./MemberCard";
+import ProfileAvatarVertical from "@/components/ProfileAvatarVertical";
 
 interface PeopleGridProps {
     members: Member[];
@@ -23,11 +23,10 @@ export default function PeopleGrid({ members }: PeopleGridProps) {
                             delay: index * 0.02,
                         }}
                     >
-                        <MemberCard member={member} />
+                        <ProfileAvatarVertical member={member} subtitle={member.department} />
                     </motion.div>
                 ))}
             </AnimatePresence>
         </div>
     );
 }
-
