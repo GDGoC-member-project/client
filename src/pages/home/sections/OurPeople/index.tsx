@@ -73,9 +73,7 @@ export default function OurPeople() {
                             }
                         }}
                         className={`font-body03-medium transition-colors ${
-                            isSearchOpen
-                                ? "underline"
-                                : "text-grey-300 hover:text-white"
+                            isSearchOpen ? "underline" : "text-grey-300 hover:text-white"
                         }`}
                     >
                         <SearchIcon className="w-6 h-6" />
@@ -94,7 +92,7 @@ export default function OurPeople() {
                     </div>
                 )}
 
-                <div className="mt-[100px]">
+                <div className="mt-25">
                     <PeopleGrid members={filteredMembers} />
                 </div>
             </div>
