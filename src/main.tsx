@@ -7,6 +7,9 @@ import Layout from "./Layout";
 import Home from "./pages/home";
 import ProjectDetail from "./pages/projects/[projectId]";
 import Projects from "./pages/projects";
+import Profile from "./pages/profile";
+import ProfileCreate from "./pages/profile/create";
+import ProfileEdit from "./pages/profile/edit";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
@@ -19,6 +22,12 @@ createRoot(document.getElementById("root")!).render(
                     <Route path="projects">
                         <Route index element={<Projects />} />
                         <Route path=":projectId" element={<ProjectDetail />} />
+                    </Route>
+
+                    <Route path="profile">
+                        <Route index element={<Profile />} />
+                        <Route path="create" element={<ProfileCreate />} />
+                        <Route path="edit" element={<ProfileEdit />} />
                     </Route>
                 </Route>
             </Routes>
