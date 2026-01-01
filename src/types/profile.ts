@@ -1,6 +1,6 @@
 export interface ProfileLink {
     id: string;
-    type: "github" | "blog" | "portfolio" | "linkedin" | "email" | "other";
+    type: "github" | "blog" | "portfolio" | "linkedin" | "email" | "instagram" | "other";
     url: string;
 }
 

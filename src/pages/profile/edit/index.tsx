@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import LogoTyped from "@/components/Logo+Typed";
 import { MOCK_PROFILE } from "../mock";
 import type { ProfileLink, ProfileCard } from "@/types/profile";
 import UploadIcon from "@/assets/icons/upload.svg?react";
@@ -28,26 +27,16 @@ export default function ProfileEdit() {
     const [selectedLinkIcon, setSelectedLinkIcon] = useState(0);
 
     return (
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background pt-20">
             <div className="max-w-4xl mx-auto px-4 py-8">
-                <div className="flex items-center justify-between mb-8">
-                    <div>
-                        <p className="font-body03-regular text-grey-300">Profile/Edit</p>
-                        <LogoTyped />
-                    </div>
-                    <div className="size-8 bg-white rounded-full flex items-center justify-center">
-                        <div className="size-6 bg-grey-800 rounded-full" />
-                    </div>
-                </div>
-
                 <div className="flex flex-col items-center gap-4 mb-12">
                     <h1 className="font-title03-medium">프로필 수정</h1>
                     <p className="font-body03-regular text-grey-300">어쩌고어머어머어쩌고</p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-8 mb-8">
-                    <div className="size-32 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                        <div className="size-24 bg-grey-800 rounded-full" />
+                    <div className="size-50 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                        <div className="size-37.5 bg-grey-800 rounded-full" />
                     </div>
 
                     <div className="flex-1 flex flex-col gap-6 max-w-md">

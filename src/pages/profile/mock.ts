@@ -15,6 +15,16 @@ export const MOCK_PROFILE: Profile = {
             type: "github",
             url: "https://github.com/",
         },
+        {
+            id: "2",
+            type: "email",
+            url: "mailto:example@example.com",
+        },
+        {
+            id: "3",
+            type: "instagram",
+            url: "https://instagram.com/",
+        },
     ],
     cards: [],
 };

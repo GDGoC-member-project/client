@@ -12,7 +12,7 @@ export default function Header() {
                     <button
                         className="group flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-grey-700 transition-all overflow-hidden"
                     >
-                        <LogoutIcon className="size-4 text-grey-300 flex-shrink-0" />
+                        <LogoutIcon className="size-4 text-white flex-shrink-0" />
                         <span className="font-body03-medium whitespace-nowrap max-w-0 group-hover:max-w-32 opacity-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden">
                             로그아웃
                         </span>
@@ -21,7 +21,7 @@ export default function Header() {
                         to="/profile/edit"
                         className="group flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-grey-700 transition-all overflow-hidden"
                     >
-                        <EditProfileIcon className="size-4 text-grey-300 flex-shrink-0" />
+                        <EditProfileIcon className="size-4 text-white flex-shrink-0" />
                         <span className="font-body03-medium whitespace-nowrap max-w-0 group-hover:max-w-32 opacity-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden">
                             프로필 수정
                         </span>
