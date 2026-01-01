@@ -7,21 +7,25 @@ import Layout from "./Layout";
 import Home from "./pages/home";
 import ProjectDetail from "./pages/projects/[projectId]";
 import Projects from "./pages/projects";
+import { enableMocking } from "./api/mock/startup";
 
-createRoot(document.getElementById("root")!).render(
-    <StrictMode>
-        <BrowserRouter basename="/">
-            <ScrollToTop />
-            <Routes>
-                <Route element={<Layout />}>
-                    <Route index element={<Home />} />
+enableMocking().then(() => {
+    const root = createRoot(document.getElementById("root")!);
+    root.render(
+        <StrictMode>
+            <BrowserRouter basename="/">
+                <ScrollToTop />
+                <Routes>
+                    <Route element={<Layout />}>
+                        <Route index element={<Home />} />
 
-                    <Route path="projects">
-                        <Route index element={<Projects />} />
-                        <Route path=":projectId" element={<ProjectDetail />} />
+                        <Route path="projects">
+                            <Route index element={<Projects />} />
+                            <Route path=":projectId" element={<ProjectDetail />} />
+                        </Route>
                     </Route>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    </StrictMode>
-);
+                </Routes>
+            </BrowserRouter>
+        </StrictMode>
+    );
+});
