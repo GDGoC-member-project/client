@@ -11,6 +11,7 @@ import Profile from "./pages/profile";
 import ProfileCreate from "./pages/profile/create";
 import ProfileEdit from "./pages/profile/edit";
 import { enableMocking } from "./api/mock/startup";
+import NewProject from "./pages/projects/new";
 
 enableMocking().then(() => {
     const root = createRoot(document.getElementById("root")!);
@@ -24,6 +25,7 @@ enableMocking().then(() => {
 
                         <Route path="projects">
                             <Route index element={<Projects />} />
+                            <Route path="new" element={<NewProject />} />
                             <Route path=":projectId" element={<ProjectDetail />} />
                         </Route>
 
