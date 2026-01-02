@@ -4,6 +4,7 @@ import PageTitleCentered from "@/components/PageTitleCentered";
 import Basics from "./sections/Basics";
 import SubmitButton from "@/components/FormKit/SubmitButton";
 import TeamRoles from "./sections/TeamRoles";
+import ContentArea from "./sections/ContentArea";
 
 export default function NewProject() {
     const initialValues = createInitialValues();
@@ -26,6 +27,8 @@ export default function NewProject() {
                         <Basics />
 
                         <TeamRoles />
+
+                        <ContentArea />
 
                         <SubmitButton />
                     </form>
