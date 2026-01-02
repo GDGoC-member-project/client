@@ -1,21 +1,14 @@
-import FormSection, { useSection } from "@/components/FormKit/FormSection";
-import type { ProjectRecruitment, ProjectRequest } from "@/types/project";
-import RoleCard from "./components/RoleCard";
-import TextInput from "@/components/FormKit/TextInput";
+import FormSection from "@/components/FormKit/FormSection";
+import { useSection } from "@/components/FormKit/FormSection";
+import type { ProjectRequest } from "@/types/project";
+import type { ProjectRecruitment } from "@/types/project";
+import { AnimatePresence, motion } from "motion/react";
+import { SMOOOTH } from "@/styles/transitions";
 import AddCardButton from "./components/AddCardButton";
 import { FieldArray } from "formik";
 import { isFilledRecruitmentField } from "./utils/isFilledRecruitmentField";
-import { AnimatePresence, motion } from "motion/react";
-import { SMOOOTH } from "@/styles/transitions";
-
-let nextId = 0;
-const createRecruitment = (): ProjectRecruitment & { uniqueId: number } => ({
-    position: "",
-    description: "",
-    filled: 0,
-    max: null as number | null,
-    uniqueId: nextId++,
-});
+import { createRecruitment } from "./utils/createRecruitment";
+import RecruitmentRoleCard from "./components/RecruitmentRoleCard";
 
 export default function TeamRoles() {
     return (
@@ -26,7 +19,7 @@ export default function TeamRoles() {
 }
 
 function TeamRolesFields() {
-    const { v, te, list } = useSection();
+    const { list } = useSection();
 
     return (
         <FieldArray name="recruitments">
@@ -39,40 +32,16 @@ function TeamRolesFields() {
                     <motion.div layout transition={SMOOOTH} className="flex flex-col gap-4">
                         <AnimatePresence>
                             {recruitments.map((recruitment, i) => (
-                                <RoleCard
+                                <RecruitmentRoleCard
                                     key={recruitment.uniqueId}
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: "auto" }}
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.2 }}
-                                    position={v(`recruitments[${i}].position`)}
-                                    description={v(`recruitments[${i}].description`)}
-                                    max={v(`recruitments[${i}].max`)}
-                                    isFieldEmpty={isFilledRecruitmentField(recruitments[i])}
-                                    onRemove={() => remove(i)}
-                                >
-                                    <TextInput
-                                        label="파트 이름"
-                                        name={`recruitments[${i}].position`}
-                                        error={te(`recruitments[${i}].position`)}
-                                        placeholder="예: 기획, iOS 개발 등"
-                                        required
-                                    />
-                                    <TextInput
-                                        label="담당 업무"
-                                        name={`recruitments[${i}].description`}
-                                        error={te(`recruitments[${i}].description`)}
-                                        placeholder="담당하게 될 핵심 업무를 작성해주세요"
-                                        required
-                                    />
-                                    <TextInput
-                                        label="최대 모집 인원"
-                                        name={`recruitments[${i}].max`}
-                                        type="number"
-                                        error={te(`recruitments[${i}].max`)}
-                                        required
-                                    />
-                                </RoleCard>
+                                    recruitment={recruitment}
+                                    index={i}
+                                    onRemove={remove}
+                                />
                             ))}
                         </AnimatePresence>
 
