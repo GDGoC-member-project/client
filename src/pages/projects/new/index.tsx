@@ -19,9 +19,9 @@ export default function NewProject() {
                 validationSchema={validationSchema}
                 onSubmit={async () => {}}
             >
-                {({ handleSubmit, touched, errors }) => (
+                {({ handleSubmit }) => (
                     <form className="flex flex-col gap-20" onSubmit={handleSubmit}>
-                        <Basics touched={touched} errors={errors} />
+                        <Basics />
 
                         <SubmitButton />
                     </form>
