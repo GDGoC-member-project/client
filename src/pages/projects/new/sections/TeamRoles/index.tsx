@@ -8,11 +8,13 @@ import { isFilledRecruitmentField } from "./utils/isFilledRecruitmentField";
 import { AnimatePresence, motion } from "motion/react";
 import { SMOOOTH } from "@/styles/transitions";
 
-const createRecruitment = (): ProjectRecruitment => ({
+let nextId = 0;
+const createRecruitment = (): ProjectRecruitment & { uniqueId: number } => ({
     position: "",
     description: "",
     filled: 0,
     max: null as number | null,
+    uniqueId: nextId++,
 });
 
 export default function TeamRoles() {
@@ -29,17 +31,18 @@ function TeamRolesFields() {
     return (
         <FieldArray name="recruitments">
             {({ push, remove }) => {
-                const recruitments = (list("recruitments") as ProjectRecruitment[]) ?? [];
+                const recruitments =
+                    (list("recruitments") as (ProjectRecruitment & { uniqueId: number })[]) ?? [];
                 const hasEmpty = recruitments.some(isFilledRecruitmentField);
 
                 return (
-                    <motion.div transition={SMOOOTH} className="flex flex-col gap-4">
+                    <motion.div layout transition={SMOOOTH} className="flex flex-col gap-4">
                         <AnimatePresence>
-                            {recruitments.map((_, i) => (
+                            {recruitments.map((recruitment, i) => (
                                 <RoleCard
-                                    key={i}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                    key={recruitment.uniqueId}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
                                     exit={{ opacity: 0, height: 0 }}
                                     transition={{ duration: 0.2 }}
                                     position={v(`recruitments[${i}].position`)}
@@ -75,12 +78,14 @@ function TeamRolesFields() {
 
                         <AddCardButton
                             onClick={() => {
-                                if (recruitments.length === 0) {
+                                requestAnimationFrame(() => {
+                                    if (recruitments.length === 0) {
+                                        push(createRecruitment());
+                                        return;
+                                    }
+                                    if (hasEmpty) return;
                                     push(createRecruitment());
-                                    return;
-                                }
-                                if (hasEmpty) return;
-                                push(createRecruitment());
+                                });
                             }}
                             disabled={recruitments.length > 0 && hasEmpty}
                         />

@@ -57,6 +57,7 @@ export default function RoleCard({
                     <button
                         className="font-body02-medium text-grey-200 cursor-pointer"
                         onClick={onRemove}
+                        type="button"
                     >
                         삭제
                     </button>
@@ -69,13 +70,18 @@ export default function RoleCard({
                                     close();
                                     onDone?.();
                                 }}
+                                type="button"
                             >
                                 완료
                             </button>
                         </>
                     ) : (
                         <>
-                            <button className="font-body02-medium cursor-pointer" onClick={open}>
+                            <button
+                                className="font-body02-medium cursor-pointer"
+                                onClick={open}
+                                type="button"
+                            >
                                 수정
                             </button>
                         </>
