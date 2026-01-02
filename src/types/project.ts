@@ -8,3 +8,20 @@ export interface ProjectMember {
     isLeader?: boolean;
 }
 
+export type ProjectRequest = {
+    title: string;
+    description?: string | null;
+    externalUrl?: string | null;
+    content: string;
+    recruitments?:
+        | {
+              position?: string | null;
+              description?: string | null;
+              filled?: number | null;
+              max?: number | null;
+          }[]
+        | null;
+    deadline?: Date | null;
+    startDate?: Date | null;
+    endDate?: Date | null;
+};
