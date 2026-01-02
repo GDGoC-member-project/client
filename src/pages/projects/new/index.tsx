@@ -7,7 +7,7 @@ export default function NewProject() {
             <Formik initialValues={{}} validationSchema={{}} onSubmit={async () => {}}>
                 {({}) => (
                     <form>
-                        <TextInput label="Project Name" name="name" placeholder="아" />
+                        <TextInput label="프로젝트 이름" name="name" placeholder="아" required />
                     </form>
                 )}
             </Formik>

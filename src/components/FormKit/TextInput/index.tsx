@@ -20,8 +20,8 @@ export default function TextInput({
     const showClear = Boolean(field.value);
 
     return (
-        <div className="flex flex-col gap-2.5 w-full">
-            <div className="flex items-center gap-1">
+        <div className="flex flex-col w-full">
+            <div className="flex items-start gap-0.5">
                 {label && (
                     <label
                         htmlFor={props.id}
@@ -30,7 +30,9 @@ export default function TextInput({
                         {label}
                     </label>
                 )}
-                {required && <Asterisk size={14} strokeWidth={2} className="text-key-primary" />}
+                {required && (
+                    <Asterisk size={14} strokeWidth={1.5} className="text-warning-yellow" />
+                )}
             </div>
 
             <div className="relative w-full">
