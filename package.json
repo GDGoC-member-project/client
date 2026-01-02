@@ -20,7 +20,8 @@
     "react-router-dom": "^7.11.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
-    "xxx": "^0.0.1"
+    "xxx": "^0.0.1",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
