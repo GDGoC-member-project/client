@@ -13,15 +13,15 @@ export type ProjectRequest = {
     description?: string | null;
     externalUrl?: string | null;
     content: string;
-    recruitments?:
-        | {
-              position?: string | null;
-              description?: string | null;
-              filled?: number | null;
-              max?: number | null;
-          }[]
-        | null;
+    recruitments?: ProjectRecruitment[];
     deadline?: Date | null;
     startDate?: Date | null;
     endDate?: Date | null;
+};
+
+export type ProjectRecruitment = {
+    position?: string | null;
+    description?: string | null;
+    filled?: number | null;
+    max?: number | null;
 };

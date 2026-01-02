@@ -2,6 +2,8 @@ import { createContext, useContext } from "react";
 
 type Ctx = {
     te: (name: string) => string | undefined;
+    v: (name: string) => any;
+    list: (name: string) => any[];
 };
 
 export const FormSectionContext = createContext<Ctx | null>(null);

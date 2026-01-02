@@ -22,9 +22,14 @@ const fields = {
                     position: Yup.string().trim().max(50).nullable(),
                     description: Yup.string().trim().max(300).nullable(),
                     filled: Yup.number().min(0).integer().nullable(),
-                    max: Yup.number().min(1).integer().nullable(),
-                }).test("filled<=max", "filled는 max를 초과할 수 없습니다.", (v) =>
-                    v?.filled == null || v?.max == null ? true : v.filled <= v.max
+                    max: Yup.number()
+                        .min(1, "최대 모집 인원은 1 이상이어야 합니다.")
+                        .integer()
+                        .nullable(),
+                }).test(
+                    "filled<=max",
+                    "최대 모집 인원은 현재 모집 인원보다 작을 수 없습니다.",
+                    (v) => (v?.filled == null || v?.max == null ? true : v.filled <= v.max)
                 )
             )
             .nullable(),

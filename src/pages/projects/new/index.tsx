@@ -3,6 +3,7 @@ import { createInitialValues, validationSchema } from "../form.schema";
 import PageTitleCentered from "@/components/PageTitleCentered";
 import Basics from "./sections/Basics";
 import SubmitButton from "@/components/FormKit/SubmitButton";
+import TeamRoles from "./sections/TeamRoles";
 
 export default function NewProject() {
     const initialValues = createInitialValues();
@@ -22,6 +23,8 @@ export default function NewProject() {
                 {({ handleSubmit }) => (
                     <form className="flex flex-col gap-20" onSubmit={handleSubmit}>
                         <Basics />
+
+                        <TeamRoles />
 
                         <SubmitButton />
                     </form>
