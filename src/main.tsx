@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import ProjectDetail from "./pages/projects/[projectId]";
 import Projects from "./pages/projects";
 import { enableMocking } from "./api/mock/startup";
+import NewProject from "./pages/projects/new";
 
 enableMocking().then(() => {
     const root = createRoot(document.getElementById("root")!);
@@ -21,6 +22,7 @@ enableMocking().then(() => {
 
                         <Route path="projects">
                             <Route index element={<Projects />} />
+                            <Route path="new" element={<NewProject />} />
                             <Route path=":projectId" element={<ProjectDetail />} />
                         </Route>
                     </Route>
