@@ -2,7 +2,7 @@ export default function ActivityGraph() {
     const months = ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const days = ["Mon", "Wed", "Fri"];
     const weeks = 53;
-    const squares = Array.from({ length: weeks * 7 }, (_, i) => {
+    const squares = Array.from({ length: weeks * 7 }, () => {
         const intensity = Math.floor(Math.random() * 5);
         return intensity;
     });

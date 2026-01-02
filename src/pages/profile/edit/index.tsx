@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MOCK_PROFILE } from "../mock";
-import type { ProfileLink, ProfileCard } from "@/types/profile";
+import type { ProfileLink } from "@/types/profile";
 import UploadIcon from "@/assets/icons/upload.svg?react";
 
 export default function ProfileEdit() {
@@ -12,8 +12,8 @@ export default function ProfileEdit() {
         skills: MOCK_PROFILE.skills,
         mbti: MOCK_PROFILE.mbti || "",
         links: MOCK_PROFILE.links.length > 0 ? MOCK_PROFILE.links : [
-            { id: crypto.randomUUID(), type: "github", url: "" },
-            { id: crypto.randomUUID(), type: "github", url: "" },
+            { id: crypto.randomUUID(), type: "github" as const, url: "" },
+            { id: crypto.randomUUID(), type: "github" as const, url: "" },
         ],
         cards: MOCK_PROFILE.cards.length > 0 ? MOCK_PROFILE.cards : [
             { id: crypto.randomUUID(), title: "", description: "", url: "" },
@@ -198,10 +198,10 @@ export default function ProfileEdit() {
                             <div className="flex gap-2">
                                 <button
                                     onClick={() => {
-                                        const newLinks = [...formData.links];
+                                        const newLinks: ProfileLink[] = [...formData.links];
                                         newLinks.push({
                                             id: crypto.randomUUID(),
-                                            type: "other",
+                                            type: "other" as const,
                                             url: "",
                                         });
                                         setFormData({ ...formData, links: newLinks });
@@ -214,7 +214,7 @@ export default function ProfileEdit() {
                                 <button
                                     onClick={() => {
                                         if (formData.links.length > 1) {
-                                            const newLinks = formData.links.filter((_, i) => i !== currentLinkTab);
+                                            const newLinks: ProfileLink[] = formData.links.filter((_, i) => i !== currentLinkTab);
                                             setFormData({ ...formData, links: newLinks });
                                             setCurrentLinkTab(Math.min(currentLinkTab, newLinks.length - 1));
                                         }
@@ -248,7 +248,7 @@ export default function ProfileEdit() {
                                 type="url"
                                 value={formData.links[currentLinkTab]?.url || ""}
                                 onChange={(e) => {
-                                    const newLinks = [...formData.links];
+                                    const newLinks: ProfileLink[] = [...formData.links];
                                     newLinks[currentLinkTab] = {
                                         ...newLinks[currentLinkTab],
                                         url: e.target.value,
