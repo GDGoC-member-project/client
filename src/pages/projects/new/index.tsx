@@ -22,7 +22,7 @@ export default function NewProject() {
                 onSubmit={async () => {}}
             >
                 {({ handleSubmit }) => (
-                    <form className="flex flex-col gap-20" onSubmit={handleSubmit}>
+                    <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
                         <Basics />
 
                         <TeamRoles />

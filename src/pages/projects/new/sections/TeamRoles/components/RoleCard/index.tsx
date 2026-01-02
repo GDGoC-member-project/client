@@ -1,5 +1,5 @@
 import { useExpandableMotion } from "@/hooks/useExpandableMotion";
-import { motion } from "motion/react";
+import { motion, type HTMLMotionProps } from "motion/react";
 import { SMOOOTH } from "@/styles/transitions";
 import type { RoleCardProps } from "./types";
 
@@ -15,7 +15,8 @@ export default function RoleCard({
     onExpandedChange,
     className,
     children,
-}: RoleCardProps) {
+    ...motionProps
+}: RoleCardProps & HTMLMotionProps<"div">) {
     const { expanded, open, close, contentMotion } = useExpandableMotion({
         expandedProp,
         onExpandedChange,
@@ -25,10 +26,10 @@ export default function RoleCard({
     return (
         <motion.div
             layout
-            transition={SMOOOTH}
             className={`${className} w-full border border-grey-800 rounded-xl p-6 transition-colors ${
                 expanded ? "bg-grey-900" : "bg-transparent"
             }`}
+            {...motionProps}
         >
             <div className="w-full flex justify-between items-start">
                 <motion.div
