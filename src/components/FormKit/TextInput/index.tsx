@@ -1,8 +1,9 @@
 import { cn } from "@/utils/classname";
+import { datetimeLocalToDate, dateToDatetimeLocal } from "@/utils/date";
 import { useField } from "formik";
 import { Asterisk, X } from "lucide-react";
 
-type TextInputProps = React.ComponentProps<"input"> & {
+type TextInputProps = Omit<React.ComponentProps<"input">, "value" | "onChange"> & {
     label?: string;
     error?: string;
     required?: boolean;
@@ -16,8 +17,18 @@ export default function TextInput({
     type = "text",
     ...props
 }: TextInputProps) {
-    const [field, , helpers] = useField(props.name!);
-    const showClear = Boolean(field.value);
+    const [field, , helpers] = useField<any>(props.name!);
+
+    const isDateTimeLocal = type === "datetime-local";
+    const rawValue = field.value;
+
+    const inputValue = isDateTimeLocal
+        ? rawValue instanceof Date
+            ? dateToDatetimeLocal(rawValue)
+            : ""
+        : rawValue ?? "";
+
+    const showClear = isDateTimeLocal ? Boolean(rawValue) : Boolean(inputValue);
 
     return (
         <div className="flex flex-col w-full">
@@ -37,9 +48,18 @@ export default function TextInput({
 
             <div className="relative w-full">
                 <input
-                    {...field}
                     {...props}
+                    name={field.name}
+                    onBlur={field.onBlur}
                     type={type}
+                    value={inputValue}
+                    onChange={(e) => {
+                        if (isDateTimeLocal) {
+                            helpers.setValue(datetimeLocalToDate(e.target.value));
+                        } else {
+                            field.onChange(e);
+                        }
+                    }}
                     className={cn(
                         "font-body01-regular w-full border-b border-grey-300 py-2 pr-8 transition-all duration-200 outline-none",
                         "focus:border-b-white",
@@ -54,7 +74,7 @@ export default function TextInput({
                     <button
                         type="button"
                         aria-label="Clear input"
-                        onClick={() => helpers.setValue("")}
+                        onClick={() => helpers.setValue(isDateTimeLocal ? null : "")}
                         className="absolute right-0 top-1/2 -translate-y-1/2 p-1 rounded-md text-grey-300 hover:text-white transition-colors"
                     >
                         <X size={16} strokeWidth={2} />
