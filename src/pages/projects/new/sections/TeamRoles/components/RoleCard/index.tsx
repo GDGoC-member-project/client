@@ -10,6 +10,7 @@ export default function RoleCard({
     max,
     isFieldEmpty,
     onRemove,
+    onDone,
     expanded: expandedProp,
     onExpandedChange,
     className,
@@ -30,9 +31,16 @@ export default function RoleCard({
             }`}
         >
             <div className="w-full flex justify-between items-start">
-                {expanded ? (
-                    <div className="h-4" />
-                ) : (
+                <motion.div
+                    className="flex-1"
+                    style={{ overflow: "hidden" }}
+                    initial={false}
+                    animate={{
+                        height: expanded ? 0 : "auto",
+                        opacity: expanded ? 0 : 1,
+                    }}
+                    transition={SMOOOTH}
+                >
                     <div className="flex flex-col gap-4">
                         <h4 className="font-body01-regular">
                             {position}{" "}
@@ -43,35 +51,29 @@ export default function RoleCard({
                         </h4>
                         <p className="font-body02-regular text-grey-200">{description}</p>
                     </div>
-                )}
+                </motion.div>
                 <div className="flex items-center gap-3">
+                    <button
+                        className="font-body02-medium text-grey-200 cursor-pointer"
+                        onClick={onRemove}
+                    >
+                        삭제
+                    </button>
                     {expanded ? (
                         <>
                             <button
-                                className="font-body02-medium text-grey-200 cursor-pointer"
-                                onClick={() => {
-                                    if (isFieldEmpty) onRemove?.();
-                                    else close();
-                                }}
-                            >
-                                취소
-                            </button>
-                            <button
                                 className="font-body02-medium cursor-pointer disabled:cursor-not-allowed disabled:text-grey-600"
                                 disabled={isFieldEmpty}
-                                onClick={close}
+                                onClick={() => {
+                                    close();
+                                    onDone?.();
+                                }}
                             >
                                 완료
                             </button>
                         </>
                     ) : (
                         <>
-                            <button
-                                className="font-body02-medium text-grey-200 cursor-pointer"
-                                onClick={onRemove}
-                            >
-                                삭제
-                            </button>
                             <button className="font-body02-medium cursor-pointer" onClick={open}>
                                 수정
                             </button>

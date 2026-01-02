@@ -5,6 +5,7 @@ export type RoleCardProps = {
     max?: number;
     isFieldEmpty?: boolean;
     onRemove?: () => void;
+    onDone?: () => void;
     defaultExpanded?: boolean;
     expanded?: boolean;
     onExpandedChange?: (expanded: boolean) => void;

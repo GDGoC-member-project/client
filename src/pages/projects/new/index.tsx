@@ -18,6 +18,7 @@ export default function NewProject() {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
+                validateOnChange={false}
                 onSubmit={async () => {}}
             >
                 {({ handleSubmit }) => (
