@@ -1,6 +1,6 @@
 import { MOCK_PROFILE } from "./mock";
-import Billboard from "./sections/Billboard";
 import ActivityGraph from "./sections/ActivityGraph";
+import Billboard from "./sections/Billboard";
 
 export default function Profile() {
     return (
