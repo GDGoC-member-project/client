@@ -9,9 +9,7 @@ export default function Header() {
             <div className="max-w-6xl mx-auto px-4 h-19 py-4 flex items-center justify-between">
                 <LogoTyped />
                 <div className="flex items-center gap-2 bg-grey-800 rounded-full px-2 py-2">
-                    <button
-                        className="group flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-grey-700 transition-all overflow-hidden"
-                    >
+                    <button className="group flex items-center gap-2 px-3 py-1.5 rounded-full hover:bg-grey-700 transition-all overflow-hidden">
                         <LogoutIcon className="size-4 text-white flex-shrink-0" />
                         <span className="font-body03-medium whitespace-nowrap max-w-0 group-hover:max-w-32 opacity-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden">
                             로그아웃

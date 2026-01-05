@@ -11,15 +11,21 @@ export default function ProfileEdit() {
         position: MOCK_PROFILE.position,
         skills: MOCK_PROFILE.skills,
         mbti: MOCK_PROFILE.mbti || "",
-        links: MOCK_PROFILE.links.length > 0 ? MOCK_PROFILE.links : [
-            { id: crypto.randomUUID(), type: "github" as const, url: "" },
-            { id: crypto.randomUUID(), type: "github" as const, url: "" },
-        ],
-        cards: MOCK_PROFILE.cards.length > 0 ? MOCK_PROFILE.cards : [
-            { id: crypto.randomUUID(), title: "", description: "", url: "" },
-            { id: crypto.randomUUID(), title: "", description: "", url: "" },
-            { id: crypto.randomUUID(), title: "", description: "", url: "" },
-        ],
+        links:
+            MOCK_PROFILE.links.length > 0
+                ? MOCK_PROFILE.links
+                : [
+                      { id: crypto.randomUUID(), type: "github" as const, url: "" },
+                      { id: crypto.randomUUID(), type: "github" as const, url: "" },
+                  ],
+        cards:
+            MOCK_PROFILE.cards.length > 0
+                ? MOCK_PROFILE.cards
+                : [
+                      { id: crypto.randomUUID(), title: "", description: "", url: "" },
+                      { id: crypto.randomUUID(), title: "", description: "", url: "" },
+                      { id: crypto.randomUUID(), title: "", description: "", url: "" },
+                  ],
     });
     const [currentLinkTab, setCurrentLinkTab] = useState(0);
     const [currentCardTab, setCurrentCardTab] = useState(0);
@@ -46,7 +52,9 @@ export default function ProfileEdit() {
                                 <input
                                     type="text"
                                     value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    onChange={(e) =>
+                                        setFormData({ ...formData, name: e.target.value })
+                                    }
                                     className="flex-1 bg-transparent border-b border-grey-800 font-body03-regular focus:outline-none focus:border-grey-700"
                                 />
                                 {formData.name && (
@@ -55,7 +63,13 @@ export default function ProfileEdit() {
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -79,12 +93,20 @@ export default function ProfileEdit() {
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
                             </div>
-                            <p className="font-body04-regular text-grey-300">최대 글자 수는 30자입니다.</p>
+                            <p className="font-body04-regular text-grey-300">
+                                최대 글자 수는 30자입니다.
+                            </p>
                         </div>
 
                         <div className="flex flex-col gap-2 w-full">
@@ -104,7 +126,13 @@ export default function ProfileEdit() {
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -124,7 +152,9 @@ export default function ProfileEdit() {
                                             onClick={() => {
                                                 setFormData({
                                                     ...formData,
-                                                    skills: formData.skills.filter((_, i) => i !== idx),
+                                                    skills: formData.skills.filter(
+                                                        (_, i) => i !== idx
+                                                    ),
                                                 });
                                             }}
                                             className="font-body04-regular text-grey-300 hover:text-white"
@@ -160,7 +190,9 @@ export default function ProfileEdit() {
                                 <input
                                     type="text"
                                     value={formData.mbti}
-                                    onChange={(e) => setFormData({ ...formData, mbti: e.target.value })}
+                                    onChange={(e) =>
+                                        setFormData({ ...formData, mbti: e.target.value })
+                                    }
                                     className="flex-1 bg-transparent border-b border-grey-800 font-body03-regular focus:outline-none focus:border-grey-700"
                                 />
                                 {formData.mbti && (
@@ -169,7 +201,13 @@ export default function ProfileEdit() {
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -214,9 +252,13 @@ export default function ProfileEdit() {
                                 <button
                                     onClick={() => {
                                         if (formData.links.length > 1) {
-                                            const newLinks: ProfileLink[] = formData.links.filter((_, i) => i !== currentLinkTab);
+                                            const newLinks: ProfileLink[] = formData.links.filter(
+                                                (_, i) => i !== currentLinkTab
+                                            );
                                             setFormData({ ...formData, links: newLinks });
-                                            setCurrentLinkTab(Math.min(currentLinkTab, newLinks.length - 1));
+                                            setCurrentLinkTab(
+                                                Math.min(currentLinkTab, newLinks.length - 1)
+                                            );
                                         }
                                     }}
                                     className="font-body03-medium text-grey-300 hover:text-white"
@@ -262,13 +304,22 @@ export default function ProfileEdit() {
                                 <button
                                     onClick={() => {
                                         const newLinks = [...formData.links];
-                                        newLinks[currentLinkTab] = { ...newLinks[currentLinkTab], url: "" };
+                                        newLinks[currentLinkTab] = {
+                                            ...newLinks[currentLinkTab],
+                                            url: "",
+                                        };
                                         setFormData({ ...formData, links: newLinks });
                                     }}
                                     className="text-grey-300 hover:text-white flex-shrink-0"
                                 >
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path
+                                            d="M12 4L4 12M4 4L12 12"
+                                            stroke="currentColor"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
                                     </svg>
                                 </button>
                             )}
@@ -321,9 +372,13 @@ export default function ProfileEdit() {
                                 <button
                                     onClick={() => {
                                         if (formData.cards.length > 1) {
-                                            const newCards = formData.cards.filter((_, i) => i !== currentCardTab);
+                                            const newCards = formData.cards.filter(
+                                                (_, i) => i !== currentCardTab
+                                            );
                                             setFormData({ ...formData, cards: newCards });
-                                            setCurrentCardTab(Math.min(currentCardTab, newCards.length - 1));
+                                            setCurrentCardTab(
+                                                Math.min(currentCardTab, newCards.length - 1)
+                                            );
                                         }
                                     }}
                                     className="font-body03-medium text-grey-300 hover:text-white"
@@ -352,13 +407,22 @@ export default function ProfileEdit() {
                                     <button
                                         onClick={() => {
                                             const newCards = [...formData.cards];
-                                            newCards[currentCardTab] = { ...newCards[currentCardTab], title: "" };
+                                            newCards[currentCardTab] = {
+                                                ...newCards[currentCardTab],
+                                                title: "",
+                                            };
                                             setFormData({ ...formData, cards: newCards });
                                         }}
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -381,13 +445,22 @@ export default function ProfileEdit() {
                                     <button
                                         onClick={() => {
                                             const newCards = [...formData.cards];
-                                            newCards[currentCardTab] = { ...newCards[currentCardTab], description: "" };
+                                            newCards[currentCardTab] = {
+                                                ...newCards[currentCardTab],
+                                                description: "",
+                                            };
                                             setFormData({ ...formData, cards: newCards });
                                         }}
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -411,13 +484,22 @@ export default function ProfileEdit() {
                                     <button
                                         onClick={() => {
                                             const newCards = [...formData.cards];
-                                            newCards[currentCardTab] = { ...newCards[currentCardTab], url: "" };
+                                            newCards[currentCardTab] = {
+                                                ...newCards[currentCardTab],
+                                                url: "",
+                                            };
                                             setFormData({ ...formData, cards: newCards });
                                         }}
                                         className="text-grey-300 hover:text-white flex-shrink-0"
                                     >
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path
+                                                d="M12 4L4 12M4 4L12 12"
+                                                stroke="currentColor"
+                                                stroke-width="1.5"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
                                         </svg>
                                     </button>
                                 )}
@@ -439,7 +521,9 @@ export default function ProfileEdit() {
                                     <div className="size-12 bg-grey-900 rounded flex items-center justify-center">
                                         <UploadIcon className="size-6 text-grey-300" />
                                     </div>
-                                    <p className="font-body03-regular text-grey-300">이미지 업로드</p>
+                                    <p className="font-body03-regular text-grey-300">
+                                        이미지 업로드
+                                    </p>
                                 </label>
                             </div>
                         </div>

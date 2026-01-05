@@ -79,4 +79,3 @@ export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
         </ContentBillboard>
     );
 }
-

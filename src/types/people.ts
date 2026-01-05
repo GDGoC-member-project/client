@@ -7,4 +7,3 @@ export interface Member {
     department: string;
     profileImage?: string;
 }
-

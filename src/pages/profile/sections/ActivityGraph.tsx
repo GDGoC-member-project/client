@@ -1,5 +1,19 @@
 export default function ActivityGraph() {
-    const months = ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const months = [
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    ];
     const days = ["Mon", "Wed", "Fri"];
     const weeks = 53;
     const squares = Array.from({ length: weeks * 7 }, () => {
@@ -12,7 +26,10 @@ export default function ActivityGraph() {
             <div className="flex flex-col gap-4">
                 <div className="flex gap-2">
                     {months.map((month, idx) => (
-                        <div key={idx} className="font-body04-regular text-grey-300 w-8 text-center">
+                        <div
+                            key={idx}
+                            className="font-body04-regular text-grey-300 w-8 text-center"
+                        >
                             {month}
                         </div>
                     ))}
@@ -33,12 +50,12 @@ export default function ActivityGraph() {
                                     intensity === 0
                                         ? "bg-grey-900"
                                         : intensity === 1
-                                          ? "bg-green-900"
-                                          : intensity === 2
-                                            ? "bg-green-700"
-                                            : intensity === 3
-                                              ? "bg-green-500"
-                                              : "bg-green-400"
+                                        ? "bg-green-900"
+                                        : intensity === 2
+                                        ? "bg-green-700"
+                                        : intensity === 3
+                                        ? "bg-green-500"
+                                        : "bg-green-400"
                                 }`}
                             />
                         ))}
@@ -48,4 +65,3 @@ export default function ActivityGraph() {
         </div>
     );
 }
-
