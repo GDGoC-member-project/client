@@ -1,6 +1,8 @@
+import type { IconType } from "@/components/SocialIcon";
+
 export interface ProfileLink {
     id: string;
-    type: "github" | "blog" | "portfolio" | "linkedin" | "email" | "instagram" | "other";
+    type: IconType;
     url: string;
 }
 
