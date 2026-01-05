@@ -1,30 +1,10 @@
-import GithubIcon from "@/assets/icons/github.svg?react";
-import InstagramIcon from "@/assets/icons/instagram.svg?react";
-import MailIcon from "@/assets/icons/mail.svg?react";
 import ContentBillboard from "@/components/ContentBillboard";
+import { IconButton } from "@/components/IconButton";
+import { IconProvider } from "@/components/SocialIcon";
 import type { Profile } from "@/types/profile";
 
 interface ProfileBillboardProps {
     profile: Profile;
-}
-
-interface LinkIconProps {
-    type: Profile["links"][number]["type"];
-}
-
-function LinkIcon({ type }: LinkIconProps) {
-    switch (type) {
-        case "github":
-            return <GithubIcon className="size-5 text-white" />;
-        case "email":
-            return <MailIcon className="size-5 text-white" />;
-        case "instagram":
-            return <InstagramIcon className="size-5 text-white" />;
-        case "blog":
-        case "portfolio":
-        default:
-            return null;
-    }
 }
 
 export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
@@ -65,9 +45,11 @@ export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="size-9 bg-grey-900 rounded-full flex items-center justify-center hover:bg-grey-800 transition-colors"
                                             >
-                                                <LinkIcon type={link.type} />
+                                                <IconButton
+                                                    icon={<IconProvider type={link.type} />}
+                                                    label={link.type}
+                                                />
                                             </a>
                                         ))}
                                 </div>
