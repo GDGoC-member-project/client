@@ -1,10 +1,6 @@
 import ContentBillboard from "@/components/ContentBillboard";
-import type { Profile } from "@/types/profile";
+import type { ProfileBillboardProps } from "./types";
 import SocialLinks from "./components/SocialLinks";
-
-interface ProfileBillboardProps {
-    profile: Profile;
-}
 
 export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
     return (
