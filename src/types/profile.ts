@@ -1,5 +1,5 @@
-import type { UUID } from "./common";
 import type { IconType } from "@/components/SocialIcon";
+import type { UUID } from "./common";
 
 type ProfileBase = {
     name: string;
@@ -44,7 +44,7 @@ export enum Role {
 export enum SocialIcon {
     GITHUB = "GitHub",
     FIGMA = "Figma",
-    DRIBBBLE = "Dribbble",
+    DRIBBBLE = "Dribbble", // TODO: 비헨스로 바꾸기
     INSTAGRAM = "Instagram",
     MAIL = "Mail",
     LINK = "Link",
