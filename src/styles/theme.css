@@ -43,6 +43,7 @@ http://scripts.sil.org/OFL
     --color-grey-100: #edeef1;
     --color-grey-50: #f8f9fb;
     --color-warning-yellow: #f6d95a;
+    --color-google-blue: #4385f3;
 }
 
 @layer utilities {
