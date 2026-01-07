@@ -1,11 +1,9 @@
-import TilesOverlay from "@/components/TilesOverlay";
-import BillboardBackground from "./Background";
+import Mesh from "@/components/Mesh";
 
 export default function Billboard() {
     return (
         <section className="relative w-full h-150 overflow-x-hidden">
-            <BillboardBackground />
-            <TilesOverlay />
+            <Mesh />
 
             <div className="relative z-20 grid place-items-center h-full text-center">
                 <div className="flex flex-col gap-2">

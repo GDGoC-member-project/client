@@ -1,13 +1,8 @@
+import type { TextInputProps } from "./types";
 import { cn } from "@/utils/classname";
 import { datetimeLocalToDate, dateToDatetimeLocal } from "@/utils/date";
 import { useField } from "formik";
 import { Asterisk, X } from "lucide-react";
-
-type TextInputProps = Omit<React.ComponentProps<"input">, "value" | "onChange"> & {
-    label?: string;
-    error?: string;
-    required?: boolean;
-};
 
 export default function TextInput({
     className,

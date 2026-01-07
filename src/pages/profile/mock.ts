@@ -28,5 +28,3 @@ export const MOCK_PROFILE: Profile = {
     ],
     cards: [],
 };
-
-
