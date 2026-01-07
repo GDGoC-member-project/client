@@ -15,7 +15,7 @@ const STACKS = [
 
 function makeProfile(i: number) {
     return {
-        user_id: `mock-user-${i}`,
+        user_id: crypto.randomUUID(),
         name: `멤버${i + 1}`,
         generation: 5,
         part: PARTS[i % PARTS.length],
