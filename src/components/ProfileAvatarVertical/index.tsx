@@ -25,18 +25,12 @@ export default function ProfileAvatarVertical({
             <div className="flex flex-col items-center gap-0.5">
                 <p
                     className={`${
-                        size === "COMPACT" ? "font-body02-medium" : "font-head02-medium"
+                        size === "COMPACT" ? "font-body02-medium" : "font-head03-medium"
                     }`}
                 >
                     {member.name}
                 </p>
-                <p
-                    className={`${
-                        size === "COMPACT" ? "font-body03-medium" : "font-body02-medium"
-                    } text-grey-200`}
-                >
-                    {subtitle}
-                </p>
+                <p className="font-body03-regular text-grey-200">{subtitle}</p>
             </div>
         </div>
     );
