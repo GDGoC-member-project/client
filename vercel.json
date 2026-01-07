@@ -1,0 +1,11 @@
+{
+    "framework": "vite",
+    "buildCommand": "pnpm run build",
+    "outputDirectory": "dist",
+    "rewrites": [
+        {
+            "source": "/((?!api|assets|static|public|favicon\\.ico|robots\\.txt|manifest\\.webmanifest|service-worker\\.js|.*\\..*).*)",
+            "destination": "/index.html"
+        }
+    ]
+}
