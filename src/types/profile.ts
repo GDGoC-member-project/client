@@ -28,11 +28,11 @@ export type ProfileSummaryResponse = ProfileIdentity & ProfileBase;
 export type ProfileResponse = ProfileIdentity & ProfileBase & ProfileDetail;
 
 export enum Part {
-    APP = "App",
-    FRONTEND = "Frontend",
-    BACKEND = "Backend",
+    APP = "APP",
+    FRONTEND = "FRONTEND",
+    BACKEND = "BACKEND",
     AI = "AI",
-    DESIGN = "Design",
+    DESIGN = "DESIGN",
 }
 
 export const PartLabelMap: Record<Part, string> = {
