@@ -7,21 +7,38 @@ import Layout from "./Layout";
 import Home from "./pages/home";
 import ProjectDetail from "./pages/projects/[projectId]";
 import Projects from "./pages/projects";
+import Profile from "./pages/profile";
+import ProfileCreate from "./pages/profile/create";
+import { enableMocking } from "./api/mock/startup";
+import NewProject from "./pages/projects/new";
+import EditProfile from "./pages/profile/edit";
 
-createRoot(document.getElementById("root")!).render(
-    <StrictMode>
-        <BrowserRouter basename="/">
-            <ScrollToTop />
-            <Routes>
-                <Route element={<Layout />}>
-                    <Route index element={<Home />} />
+enableMocking().then(() => {
+    const root = createRoot(document.getElementById("root")!);
+    root.render(
+        <StrictMode>
+            <BrowserRouter basename="/">
+                <ScrollToTop />
+                <Routes>
+                    <Route element={<Layout />}>
+                        <Route index element={<Home />} />
 
-                    <Route path="projects">
-                        <Route index element={<Projects />} />
-                        <Route path=":projectId" element={<ProjectDetail />} />
+                        <Route path="projects">
+                            <Route index element={<Projects />} />
+                            <Route path="new" element={<NewProject />} />
+                            <Route path=":projectId" element={<ProjectDetail />} />
+                        </Route>
+
+                        <Route path="profile">
+                            <Route index element={<Profile />} />
+                            <Route path="create" element={<ProfileCreate />} />
+                            <Route path="edit" element={<EditProfile />} />
+                        </Route>
+
+                        <Route path="profiles/:userId" element={<Profile />} />
                     </Route>
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    </StrictMode>
-);
+                </Routes>
+            </BrowserRouter>
+        </StrictMode>
+    );
+});

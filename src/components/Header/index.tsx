@@ -1,11 +1,13 @@
 import LogoTyped from "@/components/Logo+Typed";
+import ActionMenu from "./components/ActionMenu";
 
 export default function Header() {
     return (
-        <div className="fixed w-full z-999 backdrop-blur-lg">
-            <div className="max-w-6xl mx-auto px-4 h-19 py-4 flex items-center justify-between">
+        <header className="fixed z-999 w-full backdrop-blur-md">
+            <div className="mx-auto flex h-19 max-w-6xl items-center justify-between px-4 py-4">
                 <LogoTyped />
+                <ActionMenu />
             </div>
-        </div>
+        </header>
     );
 }
