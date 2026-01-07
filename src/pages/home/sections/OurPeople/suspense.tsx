@@ -2,6 +2,7 @@ import { Suspense, use } from "react";
 import OurPeopleSection from "./section";
 import { getProfilesPromise } from "./resource";
 import OurPeopleSkeleton from "./skeleton";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 function OurPeopleResolved() {
     const profiles = use(getProfilesPromise());
@@ -18,9 +19,11 @@ export default function OurPeople() {
                 </p>
             </div>
 
-            <Suspense fallback={<OurPeopleSkeleton />}>
-                <OurPeopleResolved />
-            </Suspense>
+            <ErrorBoundary fallback={<OurPeopleSkeleton />}>
+                <Suspense fallback={<OurPeopleSkeleton />}>
+                    <OurPeopleResolved />
+                </Suspense>
+            </ErrorBoundary>
         </section>
     );
 }
