@@ -10,7 +10,7 @@ export default function ProjectMembersGrid({ members }: ProjectMembersGridProps)
         <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
             {members.map((member) => (
                 <ProfileAvatarVertical
-                    key={member.id}
+                    key={member.user_id}
                     member={member}
                     subtitle={member.role}
                     size="COMPACT"
