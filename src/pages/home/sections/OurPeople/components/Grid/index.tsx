@@ -1,18 +1,14 @@
-import { motion, AnimatePresence } from "motion/react";
-import type { Member } from "@/types/people";
+import { AnimatePresence, motion } from "motion/react";
+import type { GridProps } from "./types";
 import ProfileAvatarVertical from "@/components/ProfileAvatarVertical";
 
-interface PeopleGridProps {
-    members: Member[];
-}
-
-export default function PeopleGrid({ members }: PeopleGridProps) {
+export default function Grid({ profiles }: GridProps) {
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 w-full max-w-6xl">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 w-full max-w-6xl mt-16">
             <AnimatePresence mode="popLayout">
-                {members.map((member, index) => (
+                {profiles.map((member, index) => (
                     <motion.div
-                        key={member.id}
+                        key={member.user_id}
                         layout
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}

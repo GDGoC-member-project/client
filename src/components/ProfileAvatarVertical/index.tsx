@@ -12,9 +12,9 @@ export default function ProfileAvatarVertical({
                     size === "COMPACT" ? "size-24" : "size-27.5"
                 }`}
             >
-                {member.profileImage ? (
+                {member.profile_image_url ? (
                     <img
-                        src={member.profileImage}
+                        src={member.profile_image_url}
                         alt={member.name}
                         className="size-full object-cover"
                     />

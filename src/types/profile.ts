@@ -78,6 +78,17 @@ export type SocialLink = {
     url: string;
 };
 
+export type ProfileFilter = { type: "ROLE"; value: Role } | { type: "PART"; value: Part };
+
+export const ProfileFilterItems: { label: string; filter: ProfileFilter }[] = [
+    { label: "Core Members", filter: { type: "ROLE", value: Role.CORE } },
+    { label: "App", filter: { type: "PART", value: Part.APP } },
+    { label: "Frontend", filter: { type: "PART", value: Part.FRONTEND } },
+    { label: "Backend", filter: { type: "PART", value: Part.BACKEND } },
+    { label: "Design", filter: { type: "PART", value: Part.DESIGN } },
+    { label: "AI", filter: { type: "PART", value: Part.AI } },
+];
+
 /**
  * @deprecated: Use SocialLink and SocialIcon
  */
