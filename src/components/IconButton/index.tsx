@@ -1,7 +1,7 @@
 import { cn } from "@/utils/classname";
 import type { IconButtonProps } from "./types";
 
-export function IconButton({ icon, label, className, ...props }: IconButtonProps) {
+export default function IconButton({ icon, label, className, ...props }: IconButtonProps) {
     return (
         <button
             type="button"

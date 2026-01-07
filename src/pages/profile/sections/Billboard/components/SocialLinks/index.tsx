@@ -1,6 +1,6 @@
 import { IconProvider } from "@/components/SocialIcon";
 import type { SocialLinksProps } from "./types";
-import { IconButton } from "@/components/IconButton";
+import IconButton from "@/components/IconButton";
 
 export default function SocialLinks({ links }: SocialLinksProps) {
     if (links.length === 0) return null;
