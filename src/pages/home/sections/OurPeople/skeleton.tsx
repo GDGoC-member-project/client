@@ -1,7 +1,8 @@
-import { cn } from "@/utils/classname";
+import ProfileAvatarVerticalSkeleton from "@/components/ProfileAvatarVertical/skeleton";
 import { ProfileFilterItems } from "@/types/profile";
+import { cn } from "@/utils/classname";
 
-export default function SelectorSkeleton() {
+function SelectorSkeleton() {
     const items = ProfileFilterItems;
 
     return (
@@ -21,5 +22,24 @@ export default function SelectorSkeleton() {
                 })}
             </div>
         </div>
+    );
+}
+
+function GridSkeleton({ count = 8 }: { count?: number }) {
+    return (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 w-full max-w-6xl mt-16">
+            {Array.from({ length: count }).map((_, i) => (
+                <ProfileAvatarVerticalSkeleton key={i} />
+            ))}
+        </div>
+    );
+}
+
+export default function OurPeopleSkeleton() {
+    return (
+        <>
+            <SelectorSkeleton />
+            <GridSkeleton />
+        </>
     );
 }

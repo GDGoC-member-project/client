@@ -1,7 +1,7 @@
 import { Suspense, use } from "react";
 import OurPeopleSection from "./section";
 import { getProfilesPromise } from "./resource";
-import OurPeopleSkeleton from "./sksleton";
+import OurPeopleSkeleton from "./skeleton";
 
 function OurPeopleResolved() {
     const profiles = use(getProfilesPromise());
