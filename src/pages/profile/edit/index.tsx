@@ -1,8 +1,9 @@
 import { Formik } from "formik";
 import { createInitialValues, validationSchema } from "../form.schema";
 import PageTitleCentered from "@/components/PageTitleCentered";
-import SubmitButton from "@/components/FormKit/SubmitButton";
 import Basics from "./sections/Basics";
+import Links from "./sections/Links";
+import SubmitButton from "@/components/FormKit/SubmitButton";
 
 export default function EditProfile() {
     const initialValues = createInitialValues();
@@ -23,6 +24,7 @@ export default function EditProfile() {
                 {({ handleSubmit }) => (
                     <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
                         <Basics />
+                        <Links />
                         <SubmitButton />
                     </form>
                 )}
