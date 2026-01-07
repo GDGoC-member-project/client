@@ -28,26 +28,26 @@ export type ProfileSummaryResponse = ProfileIdentity & ProfileBase;
 export type ProfileResponse = ProfileIdentity & ProfileBase & ProfileDetail;
 
 export enum Part {
-    APP = "APP",
-    FRONTEND = "FRONTEND",
-    BACKEND = "BACKEND",
+    APP = "App",
+    FRONTEND = "Frontend",
+    BACKEND = "Backend",
     AI = "AI",
-    DESIGN = "DESIGN",
+    DESIGN = "Design",
 }
 
 export enum Role {
-    LEAD = "LEAD",
-    CORE = "CORE",
-    MEMBER = "MEMBER",
+    LEAD = "리드",
+    CORE = "코어",
+    MEMBER = "멤버",
 }
 
 export enum SocialIcon {
-    GITHUB = "GITHUB",
-    FIGMA = "FIGMA",
-    DRIBBBLE = "DRIBBBLE",
-    INSTAGRAM = "INSTAGRAM",
-    MAIL = "MAIL",
-    LINK = "LINK",
+    GITHUB = "GitHub",
+    FIGMA = "Figma",
+    DRIBBBLE = "Dribbble",
+    INSTAGRAM = "Instagram",
+    MAIL = "Mail",
+    LINK = "Link",
 }
 
 export type SocialLink = {
