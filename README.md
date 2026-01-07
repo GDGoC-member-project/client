@@ -1,43 +1,12 @@
-## Client
 
-### Development Guide
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/f6b7bb1e-31fc-4f98-a2b2-3d759e78754e">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/0259eb3c-92fc-4410-b9ab-6b01028dd5a0">
+  <img alt="Banner description" src="https://github.com/user-attachments/assets/f6b7bb1e-31fc-4f98-a2b2-3d759e78754e">
+</picture>
 
-#### 0. Prerequisites
-
-1. Install package manager
-    ```bash
-    npm install --global corepack@latest
-    corepack enable pnpm
-    ```
-2. Add ENV variables
-    ```plaintext
-    VITE_SERVER_HOST=http://...
-    ```
-
-#### 1. Install Dependencies
 ```bash
 pnpm install
-```
-- Add a package
-    ```bash
-    pnpm add <pkg>
-    ```
-- Add a dev dependency
-    ```bash
-    pnpm add -D <pkg>
-    ```
-
-#### 2. Run Dev Server
-```bash
-pnpm dev
-```
-
-#### 3. Build
-```bash
 pnpm build
-```
-
-#### 4. Production
-```bash
 pnpm preview
 ```
