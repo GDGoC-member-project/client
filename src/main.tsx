@@ -34,6 +34,8 @@ enableMocking().then(() => {
                             <Route path="create" element={<ProfileCreate />} />
                             <Route path="edit" element={<EditProfile />} />
                         </Route>
+
+                        <Route path="profiles/:userId" element={<Profile />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

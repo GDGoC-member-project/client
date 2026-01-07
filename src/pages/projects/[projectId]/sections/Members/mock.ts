@@ -1,21 +1,21 @@
+import { Role } from "@/types/profile";
 import type { ProjectMember } from "@/types/project";
 
 export const MOCK_PROJECT_MEMBERS: ProjectMember[] = [
     {
-        id: crypto.randomUUID(),
+        user_id: crypto.randomUUID(),
         name: "김구글",
-        role: "기획",
+        role: Role.MEMBER,
     },
     {
-        id: crypto.randomUUID(),
+        user_id: crypto.randomUUID(),
         name: "김구글",
-        role: "디자이너",
+        role: Role.MEMBER,
     },
     {
-        id: crypto.randomUUID(),
+        user_id: crypto.randomUUID(),
         name: "김구글",
-        role: "앱 개발자",
+        role: Role.MEMBER,
         isLeader: true,
     },
 ];
-
