@@ -35,20 +35,43 @@ export enum Part {
     DESIGN = "Design",
 }
 
+export const PartLabelMap: Record<Part, string> = {
+    [Part.APP]: "앱 개발",
+    [Part.FRONTEND]: "프론트엔드",
+    [Part.BACKEND]: "백엔드",
+    [Part.AI]: "인공지능",
+    [Part.DESIGN]: "디자인",
+};
+
 export enum Role {
-    LEAD = "리드",
-    CORE = "코어",
-    MEMBER = "멤버",
+    LEAD = "LEAD",
+    CORE = "CORE",
+    MEMBER = "MEMBER",
 }
 
+export const RoleLabelMap: Record<Role, string> = {
+    [Role.LEAD]: "리드",
+    [Role.CORE]: "코어",
+    [Role.MEMBER]: "멤버",
+};
+
 export enum SocialIcon {
-    GITHUB = "GitHub",
-    FIGMA = "Figma",
-    DRIBBBLE = "Dribbble", // TODO: 비헨스로 바꾸기
-    INSTAGRAM = "Instagram",
-    MAIL = "Mail",
-    LINK = "Link",
+    GITHUB = "GITHUB",
+    FIGMA = "FIGMA",
+    DRIBBBLE = "DRIBBBLE", // TODO: 비헨스로 바꾸기
+    INSTAGRAM = "INSTAGRAM",
+    MAIL = "MAIL",
+    LINK = "LINK",
 }
+
+export const SocialIconLabelMap: Record<SocialIcon, string> = {
+    [SocialIcon.GITHUB]: "GitHub",
+    [SocialIcon.FIGMA]: "Figma",
+    [SocialIcon.DRIBBBLE]: "Dribbble",
+    [SocialIcon.INSTAGRAM]: "Instagram",
+    [SocialIcon.MAIL]: "Email",
+    [SocialIcon.LINK]: "Link",
+};
 
 export type SocialLink = {
     icon?: SocialIcon;
