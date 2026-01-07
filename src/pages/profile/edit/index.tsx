@@ -4,6 +4,7 @@ import PageTitleCentered from "@/components/PageTitleCentered";
 import Basics from "./sections/Basics";
 import Links from "./sections/Links";
 import SubmitButton from "@/components/FormKit/SubmitButton";
+import ProfileImage from "./sections/ProfileImage";
 
 export default function EditProfile() {
     const initialValues = createInitialValues();
@@ -23,6 +24,7 @@ export default function EditProfile() {
             >
                 {({ handleSubmit }) => (
                     <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
+                        <ProfileImage />
                         <Basics />
                         <Links />
                         <SubmitButton />
