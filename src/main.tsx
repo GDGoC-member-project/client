@@ -9,9 +9,9 @@ import ProjectDetail from "./pages/projects/[projectId]";
 import Projects from "./pages/projects";
 import Profile from "./pages/profile";
 import ProfileCreate from "./pages/profile/create";
-import ProfileEdit from "./pages/profile/edit";
 import { enableMocking } from "./api/mock/startup";
 import NewProject from "./pages/projects/new";
+import EditProfile from "./pages/profile/edit";
 
 enableMocking().then(() => {
     const root = createRoot(document.getElementById("root")!);
@@ -32,7 +32,7 @@ enableMocking().then(() => {
                         <Route path="profile">
                             <Route index element={<Profile />} />
                             <Route path="create" element={<ProfileCreate />} />
-                            <Route path="edit" element={<ProfileEdit />} />
+                            <Route path="edit" element={<EditProfile />} />
                         </Route>
                     </Route>
                 </Routes>
