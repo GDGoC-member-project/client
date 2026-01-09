@@ -55,14 +55,4 @@ export default defineConfig({
         },
     },
     base: "/",
-    server: {
-        proxy: {
-            "/api": {
-                target: "http://15.165.15.232/",
-                changeOrigin: true,
-                secure: false,
-                rewrite: (path) => path.replace(/^\/api\//, "/"),
-            },
-        },
-    },
 });

@@ -4,10 +4,6 @@
     "outputDirectory": "dist",
     "rewrites": [
         {
-            "source": "/api/(.*)",
-            "destination": "http://15.165.15.232/$1"
-        },
-        {
             "source": "/((?!api|assets|static|public|favicon\\.ico|robots\\.txt|manifest\\.webmanifest|service-worker\\.js|.*\\..*).*)",
             "destination": "/index.html"
         }
