@@ -1,4 +1,3 @@
-import type { IconType } from "@/components/SocialIcon";
 import type { UUID } from "./common";
 
 type ProfileBase = {
@@ -116,7 +115,7 @@ export function profileResponseToRequest(profile: ProfileResponse): ProfileReque
  */
 export interface ProfileLink {
     id: string;
-    type: IconType;
+    type: SocialIcon;
     url: string;
 }
 
