@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { Formik } from "formik";
 import { createInitialValues, validationSchema } from "../form.schema";
 import PageTitleCentered from "@/components/PageTitleCentered";
-import Basics from "./sections/Basics";
-import Links from "./sections/Links";
-import SubmitButton from "@/components/FormKit/SubmitButton";
-import ProfileImage from "./sections/ProfileImage";
+import Basics from "../sections/Basics";
+import Links from "../sections/Links";
+import ProfileImage from "../sections/ProfileImage";
 import { createProfile } from "@/api/profiles";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/api/auth/AuthProvider";
+import SubmitButton from "@/components/FormKit/SubmitButton";
 
 export default function EditProfile() {
     const { status, profile } = useAuth();

@@ -1,6 +1,7 @@
 import ContentBillboard from "@/components/ContentBillboard";
 import type { ProfileBillboardProps } from "./types";
 import SocialLinks from "./components/SocialLinks";
+import { PartLabelMap, RoleLabelMap } from "@/types/profile";
 
 export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
     return (
@@ -20,9 +21,19 @@ export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
                 <h1 className="font-title01-medium">{profile.name}</h1>
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 font-body01-medium">
-                        <span>{profile.generation}</span> <div className="w-px h-5 bg-white" />
-                        <span>{profile.role}</span> <div className="w-px h-5 bg-white" />
-                        <span>{profile.part}</span>
+                        {profile.generation && (
+                            <>
+                                <span>{profile.generation}기</span>{" "}
+                                <div className="w-px h-5 bg-white" />
+                            </>
+                        )}
+                        {profile.role && (
+                            <>
+                                <span>{RoleLabelMap[profile.role]}</span>{" "}
+                                <div className="w-px h-5 bg-white" />
+                            </>
+                        )}
+                        {profile.part && <span>{PartLabelMap[profile.part]}</span>}
                     </div>
                     <div className="flex justify-between">
                         <p className="font-body01-regular">{profile.bio}</p>

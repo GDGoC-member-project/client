@@ -28,6 +28,23 @@ function BasicsFields() {
             />
 
             <TextInput
+                label="기수"
+                name="generation"
+                placeholder="기수를 입력해 주세요"
+                error={te("generation")}
+                type="number"
+                required
+            />
+
+            <TextInput
+                label="한 줄 소개"
+                name="bio"
+                placeholder="한 줄 소개를 입력해 주세요"
+                error={te("bio")}
+                required
+            />
+
+            <TextInput
                 label="학과/소속"
                 name="department"
                 placeholder="학과나 소속을 입력해 주세요"

@@ -1,10 +1,10 @@
 import { Formik } from "formik";
 import { validationSchema } from "../form.schema";
 import PageTitleCentered from "@/components/PageTitleCentered";
-import Basics from "./sections/Basics";
-import Links from "./sections/Links";
+import Basics from "../sections/Basics";
+import Links from "../sections/Links";
 import SubmitButton from "@/components/FormKit/SubmitButton";
-import ProfileImage from "./sections/ProfileImage";
+import ProfileImage from "../sections/ProfileImage";
 import { useAuth } from "@/api/auth/AuthProvider";
 import { profileResponseToRequest } from "@/types/profile";
 import { updateProfile } from "@/api/profiles";
