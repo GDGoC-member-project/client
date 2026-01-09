@@ -1,8 +1,9 @@
-import { ICON_REGISTRY, type IconType } from "./registry";
+import type { SocialIcon } from "@/types/profile";
+import { ICON_REGISTRY } from "./registry";
 import { HelpCircleIcon } from "lucide-react";
 
 type Props = {
-    type: IconType;
+    type: SocialIcon;
     className?: string;
 };
 

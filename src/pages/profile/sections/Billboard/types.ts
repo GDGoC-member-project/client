@@ -1,5 +1,5 @@
-import type { Profile } from "@/types/profile";
+import type { ProfileResponse } from "@/types/profile";
 
 export type ProfileBillboardProps = {
-    profile: Profile;
+    profile: ProfileResponse;
 };

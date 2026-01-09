@@ -3,13 +3,12 @@ import GithubIcon from "@/assets/icons/github.svg?react";
 import MailIcon from "@/assets/icons/mail.svg?react";
 
 import type { ComponentType } from "react";
-
-export type IconType = "github" | "email" | "instagram" | "blog" | "portfolio";
+import type { SocialIcon } from "@/types/profile";
 
 export type IconComponent = ComponentType<{ className?: string }>;
 
-export const ICON_REGISTRY: Partial<Record<IconType, IconComponent>> = {
-    github: GithubIcon,
-    email: MailIcon,
-    instagram: InstagramIcon,
+export const ICON_REGISTRY: Partial<Record<SocialIcon, IconComponent>> = {
+    GITHUB: GithubIcon,
+    MAIL: MailIcon,
+    INSTAGRAM: InstagramIcon,
 };

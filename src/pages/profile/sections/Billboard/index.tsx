@@ -7,9 +7,9 @@ export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
         <ContentBillboard>
             <div className="w-full flex flex-col gap-4">
                 <div className="rounded-full flex items-center justify-center overflow-hidden size-37.5">
-                    {profile.profileImage ? (
+                    {profile.profile_image_url ? (
                         <img
-                            src={profile.profileImage}
+                            src={profile.profile_image_url}
                             alt={profile.name}
                             className="size-full object-cover"
                         />
@@ -22,11 +22,11 @@ export default function ProfileBillboard({ profile }: ProfileBillboardProps) {
                     <div className="flex items-center gap-2 font-body01-medium">
                         <span>{profile.generation}</span> <div className="w-px h-5 bg-white" />
                         <span>{profile.role}</span> <div className="w-px h-5 bg-white" />
-                        <span>{profile.position}</span>
+                        <span>{profile.part}</span>
                     </div>
                     <div className="flex justify-between">
-                        <p className="font-body01-regular">{profile.aboutMe}</p>
-                        <SocialLinks links={profile.links} />
+                        <p className="font-body01-regular">{profile.bio}</p>
+                        {profile.social_links && <SocialLinks links={profile.social_links} />}
                     </div>
                 </div>
             </div>
