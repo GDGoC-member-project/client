@@ -1,4 +1,4 @@
-import { Suspense, use, useEffect, useState } from "react";
+import { Suspense, use } from "react";
 import { useParams } from "react-router-dom";
 import BillboardSection from "./section";
 import { getProjectPromise } from "../../resource";
