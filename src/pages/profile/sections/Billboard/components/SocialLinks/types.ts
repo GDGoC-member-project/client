@@ -1,5 +1,5 @@
-import type { ProfileLink } from "@/types/profile";
+import type { SocialLink } from "@/types/profile";
 
 export type SocialLinksProps = {
-    links: ProfileLink[];
+    links: SocialLink[];
 };

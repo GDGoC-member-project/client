@@ -2,9 +2,13 @@ import { cn } from "@/utils/classname";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@/assets/icons/logout.svg?react";
 import EditProfileIcon from "@/assets/icons/edit-profile.svg?react";
+import NewProjectButton from "@/assets/icons/file-plus-corner.svg?react";
 import ActionButton from "../ActionButton";
+import { useAuth } from "@/api/auth/AuthProvider";
 
 export default function ActionMenu() {
+    const { profile, logout } = useAuth();
+
     return (
         <div className="group relative inline-flex">
             <div
@@ -23,16 +27,21 @@ export default function ActionMenu() {
                         "group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100"
                     )}
                 >
-                    <ActionButton onClick={() => {}}>
+                    <ActionButton onClick={logout}>
                         <LogoutIcon className="size-4.5 shrink-0 text-white" />
                     </ActionButton>
-                    <ActionButton to="/profile/edit" ariaLabel="프로필 수정">
-                        <EditProfileIcon className="size-4.5 shrink-0 text-white" />
+                    <ActionButton to="/projects/new" ariaLabel="프로젝트 생성">
+                        <NewProjectButton className="size-4.5 shrink-0 text-white" />
                     </ActionButton>
+                    {profile !== null && (
+                        <ActionButton to="/profile/edit" ariaLabel="프로필 수정">
+                            <EditProfileIcon className="size-4.5 shrink-0 text-white" />
+                        </ActionButton>
+                    )}
                 </div>
 
                 <Link
-                    to="/profile"
+                    to={profile !== null ? "/profile" : "/profile/create"}
                     aria-label="프로필"
                     className={cn(
                         "ml-2 z-10 flex size-12 shrink-0 items-center justify-center rounded-full",
@@ -40,7 +49,19 @@ export default function ActionMenu() {
                         "group-hover:scale-110 hover:ring hover:ring-grey-300"
                     )}
                 >
-                    <div className="size-12 rounded-full bg-grey-900" />
+                    <div className="size-12 rounded-full">
+                        {profile?.profile_image_url ? (
+                            <img
+                                src={profile.profile_image_url}
+                                alt="프로필 이미지"
+                                className="size-12 rounded-full object-cover"
+                            />
+                        ) : (
+                            <div className="flex h-full w-full items-center justify-center rounded-full bg-grey-800 text-2xl font-semibold text-white">
+                                {profile?.name ? profile.name.charAt(0) : "?"}
+                            </div>
+                        )}
+                    </div>
                 </Link>
             </div>
         </div>

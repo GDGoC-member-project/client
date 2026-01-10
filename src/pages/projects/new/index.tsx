@@ -5,6 +5,7 @@ import Basics from "./sections/Basics";
 import SubmitButton from "@/components/FormKit/SubmitButton";
 import TeamRoles from "./sections/TeamRoles";
 import ContentArea from "./sections/ContentArea";
+import { createProject } from "@/api/projects";
 
 export default function NewProject() {
     const initialValues = createInitialValues();
@@ -19,10 +20,19 @@ export default function NewProject() {
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                validateOnChange={false}
-                onSubmit={async () => {}}
+                onSubmit={async (values, { setSubmitting }) => {
+                    try {
+                        await createProject(values);
+                        alert("프로젝트가 성공적으로 생성되었습니다!");
+                        window.location.href = "/";
+                    } catch (error) {
+                        alert("프로젝트 생성 중 오류가 발생했습니다. 다시 시도해 주세요.");
+                    } finally {
+                        setSubmitting(false);
+                    }
+                }}
             >
-                {({ handleSubmit }) => (
+                {({ handleSubmit, isSubmitting }) => (
                     <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
                         <Basics />
 
@@ -30,7 +40,7 @@ export default function NewProject() {
 
                         <ContentArea />
 
-                        <SubmitButton />
+                        <SubmitButton isSubmitting={isSubmitting} />
                     </form>
                 )}
             </Formik>

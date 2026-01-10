@@ -1,6 +1,7 @@
 import { IconProvider } from "@/components/SocialIcon";
 import type { SocialLinksProps } from "./types";
 import IconButton from "@/components/IconButton";
+import { SocialIcon } from "@/types/profile";
 
 export default function SocialLinks({ links }: SocialLinksProps) {
     if (links.length === 0) return null;
@@ -8,13 +9,18 @@ export default function SocialLinks({ links }: SocialLinksProps) {
     return (
         <div className="flex gap-3">
             {links.map((link) => {
-                const icon = <IconProvider type={link.type} className="size-4 text-white" />;
+                const icon = (
+                    <IconProvider
+                        type={link.icon ?? SocialIcon.LINK}
+                        className="size-4 text-white"
+                    />
+                );
 
                 if (!icon) return null;
 
                 return (
-                    <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer">
-                        <IconButton label={link.type} icon={icon} />
+                    <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+                        <IconButton label={link.icon} icon={icon} />
                     </a>
                 );
             })}

@@ -1,17 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import "./styles/theme.css";
-import { enableMocking } from "./api/mock/startup";
+import { AuthProvider } from "@/api/auth/AuthProvider";
 import PageRoutes from "./Routes";
+import "./styles/theme.css";
 
-enableMocking().then(() => {
-    const root = createRoot(document.getElementById("root")!);
-    root.render(
-        <StrictMode>
+const root = createRoot(document.getElementById("root")!);
+root.render(
+    <StrictMode>
+        <AuthProvider>
             <BrowserRouter basename="/">
                 <PageRoutes />
             </BrowserRouter>
-        </StrictMode>
-    );
-});
+        </AuthProvider>
+    </StrictMode>
+);

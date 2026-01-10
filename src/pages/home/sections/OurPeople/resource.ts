@@ -1,4 +1,4 @@
-import { fetchProfiles } from "./api";
+import { fetchProfiles } from "@/api/profiles";
 import type { ProfileSummaryResponse } from "@/types/profile";
 
 let promise: Promise<ProfileSummaryResponse[]> | null = null;

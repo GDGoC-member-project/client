@@ -1,4 +1,3 @@
-import type { IconType } from "@/components/SocialIcon";
 import type { UUID } from "./common";
 
 type ProfileBase = {
@@ -89,12 +88,34 @@ export const ProfileFilterItems: { label: string; filter: ProfileFilter }[] = [
     { label: "AI", filter: { type: "PART", value: Part.AI } },
 ];
 
+export type ProfileImageUploadResponse = {
+    user_id: UUID;
+    profile_image_url: string;
+    file_size: number;
+    file_name: string;
+};
+
+export function profileResponseToRequest(profile: ProfileResponse): ProfileRequest {
+    return {
+        name: profile.name,
+        generation: profile.generation,
+        part: profile.part,
+        role: profile.role,
+        department: profile.department,
+        bio: profile.bio,
+        profile_image_url: profile.profile_image_url,
+        mbti_info: profile.mbti_info,
+        tech_stacks: profile.tech_stacks,
+        social_links: profile.social_links,
+    };
+}
+
 /**
  * @deprecated: Use SocialLink and SocialIcon
  */
 export interface ProfileLink {
     id: string;
-    type: IconType;
+    type: SocialIcon;
     url: string;
 }
 

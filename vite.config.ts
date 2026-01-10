@@ -55,14 +55,4 @@ export default defineConfig({
         },
     },
     base: "/",
-    // server: {
-    //     proxy: {
-    //         "/api": {
-    //             target: "http://3.35.81.101:8080",
-    //             changeOrigin: true,
-    //             secure: false,
-    //             rewrite: (path) => path.replace(/^\/api\//, "/"),
-    //         },
-    //     },
-    // },
 });
