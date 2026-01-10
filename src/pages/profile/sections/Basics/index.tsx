@@ -2,7 +2,6 @@ import FormSection, { useSection } from "@/components/FormKit/FormSection";
 import { Part, Role, type ProfileRequest } from "@/types/profile";
 import TextInput from "@/components/FormKit/TextInput";
 import TextSelect from "@/components/FormKit/TextSelect";
-import TextChipsInput from "@/components/FormKit/TextChipsInput";
 
 export default function Basics() {
     return (
@@ -77,12 +76,12 @@ function BasicsFields() {
                 required
             />
 
-            <TextChipsInput
+            {/* <TextChipsInput
                 label="기술 스택"
                 name="techStacks"
                 placeholder=", 로 구분하여 입력해 주세요"
                 error={te("techStacks")}
-            />
+            /> */}
         </>
     );
 }

@@ -43,21 +43,23 @@ export default function EditProfile() {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 validateOnChange={false}
-                onSubmit={async (values) => {
+                onSubmit={async (values, { setSubmitting }) => {
                     try {
                         await createProfile(values);
+                        window.location.replace("/profile");
                     } catch (error) {
                         alert("프로필 등록에 실패했습니다. 다시 시도해주세요.");
+                    } finally {
+                        setSubmitting(false);
                     }
-                    navigate("/profile");
                 }}
             >
-                {({ handleSubmit }) => (
+                {({ handleSubmit, isSubmitting }) => (
                     <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
                         <ProfileImage />
                         <Basics />
                         <Links />
-                        <SubmitButton />
+                        <SubmitButton isSubmitting={isSubmitting} />
                     </form>
                 )}
             </Formik>
