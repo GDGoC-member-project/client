@@ -1,7 +1,7 @@
 import TeamRoleCapacityIndicator from "@/components/TeamRoleCapacityIndicator";
-import type { BillboardContentProps } from "./types";
+import type { BillboardSectionProps } from "./types";
 
-export default function BillboardContent({ project }: BillboardContentProps) {
+export default function BillboardSection({ project }: BillboardSectionProps) {
     return (
         <div className="w-full max-w-lg flex flex-col gap-8">
             <div className="flex flex-col gap-2">

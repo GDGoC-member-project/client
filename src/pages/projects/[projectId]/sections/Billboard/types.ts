@@ -1,5 +1,5 @@
 import type { ProjectResponse } from "@/types/project";
 
-export type BillboardContentProps = {
+export type BillboardSectionProps = {
     project: ProjectResponse;
 };
