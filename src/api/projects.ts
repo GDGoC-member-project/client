@@ -8,7 +8,7 @@ import type {
 } from "@/types/project";
 
 export async function fetchProjects() {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/projects`);
+    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/projects`);
 
     if (!res.ok) {
         throw new Error("Failed to fetch projects");
@@ -19,7 +19,7 @@ export async function fetchProjects() {
 }
 
 export async function fetchProjectById(projectId: UUID) {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/projects/${projectId}`);
+    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/projects/${projectId}`);
 
     if (!res.ok) {
         throw new Error("Failed to fetch project");
@@ -30,7 +30,7 @@ export async function fetchProjectById(projectId: UUID) {
 }
 
 export async function createProject(payload: ProjectRequest) {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/projects`, {
+    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/projects`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -49,14 +49,17 @@ export async function createProject(payload: ProjectRequest) {
 }
 
 export async function updateProject(projectId: UUID, payload: ProjectRequest) {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/projects/${projectId}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(payload),
-    });
+    const res = await fetch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/projects/${projectId}`,
+        {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(payload),
+        }
+    );
 
     if (!res.ok) {
         throw new Error("Failed to update project");
@@ -68,10 +71,13 @@ export async function updateProject(projectId: UUID, payload: ProjectRequest) {
 }
 
 export async function deleteProject(projectId: UUID) {
-    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/projects/${projectId}`, {
-        method: "DELETE",
-        credentials: "include",
-    });
+    const res = await fetch(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/projects/${projectId}`,
+        {
+            method: "DELETE",
+            credentials: "include",
+        }
+    );
 
     if (!res.ok) {
         throw new Error("Failed to delete project");
