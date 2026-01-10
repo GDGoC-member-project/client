@@ -2,7 +2,6 @@ import FormSection, { useSection } from "@/components/FormKit/FormSection";
 import { Part, Role, type ProfileRequest } from "@/types/profile";
 import TextInput from "@/components/FormKit/TextInput";
 import TextSelect from "@/components/FormKit/TextSelect";
-import TextChipsInput from "@/components/FormKit/TextChipsInput";
 
 export default function Basics() {
     return (
