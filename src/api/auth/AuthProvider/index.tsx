@@ -28,6 +28,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         logoutServer();
         clearCachedMe();
         setStatus("unauthenticated");
+        window.location.replace("/");
     }
 
     React.useEffect(() => {

@@ -8,11 +8,9 @@ import ProfileImage from "../sections/ProfileImage";
 import { useAuth } from "@/api/auth/AuthProvider";
 import { profileResponseToRequest } from "@/types/profile";
 import { updateProfile } from "@/api/profiles";
-import { useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
     const { profile } = useAuth();
-    const navigate = useNavigate();
 
     return (
         <div className="mx-auto max-w-6xl px-4">
@@ -26,21 +24,23 @@ export default function EditProfile() {
                     initialValues={profileResponseToRequest(profile)}
                     validationSchema={validationSchema}
                     validateOnChange={false}
-                    onSubmit={async (values) => {
+                    onSubmit={async (values, { setSubmitting }) => {
                         try {
                             await updateProfile(values);
+                            window.location.replace("/profile");
                         } catch (error) {
                             alert("프로필 수정에 실패했습니다. 다시 시도해주세요.");
+                        } finally {
+                            setSubmitting(false);
                         }
-                        navigate("/profile", { replace: true });
                     }}
                 >
-                    {({ handleSubmit }) => (
+                    {({ handleSubmit, isSubmitting }) => (
                         <form className="flex flex-col gap-20 pb-30" onSubmit={handleSubmit}>
                             <ProfileImage />
                             <Basics />
                             <Links />
-                            <SubmitButton />
+                            <SubmitButton isSubmitting={isSubmitting} />
                         </form>
                     )}
                 </Formik>
