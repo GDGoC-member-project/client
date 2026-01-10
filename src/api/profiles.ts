@@ -1,5 +1,6 @@
 import type { ProfileRequest } from "./../types/profile";
 import type { ApiResponse } from "@/types/api";
+import type { UUID } from "@/types/common";
 import type {
     ProfileImageUploadResponse,
     ProfileResponse,
@@ -12,6 +13,15 @@ export async function fetchProfiles(): Promise<ProfileSummaryResponse[]> {
 
     const json = (await res.json()) as ApiResponse<ProfileSummaryResponse[]>;
     return json.data ?? [];
+}
+
+export async function fetchProfileById(userId: UUID): Promise<ProfileResponse> {
+    const res = await fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/api/v1/profiles/${userId}`);
+    if (!res.ok) throw new Error(`Failed to fetch profile by ID: ${res.status}`);
+
+    const json = (await res.json()) as ApiResponse<ProfileResponse>;
+    if (!json.data) throw new Error("No profile data found for the given ID");
+    return json.data;
 }
 
 export async function fetchProfileMe(): Promise<ProfileResponse> {
