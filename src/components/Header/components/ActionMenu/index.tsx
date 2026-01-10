@@ -2,6 +2,7 @@ import { cn } from "@/utils/classname";
 import { Link } from "react-router-dom";
 import LogoutIcon from "@/assets/icons/logout.svg?react";
 import EditProfileIcon from "@/assets/icons/edit-profile.svg?react";
+import NewProjectButton from "@/assets/icons/file-plus-corner.svg?react";
 import ActionButton from "../ActionButton";
 import { useAuth } from "@/api/auth/AuthProvider";
 
@@ -28,6 +29,9 @@ export default function ActionMenu() {
                 >
                     <ActionButton onClick={logout}>
                         <LogoutIcon className="size-4.5 shrink-0 text-white" />
+                    </ActionButton>
+                    <ActionButton to="/projects/new" ariaLabel="프로젝트 생성">
+                        <NewProjectButton className="size-4.5 shrink-0 text-white" />
                     </ActionButton>
                     {profile !== null && (
                         <ActionButton to="/profile/edit" ariaLabel="프로필 수정">
