@@ -60,7 +60,7 @@ const fields = {
     },
 
     tech_stacks: {
-        initial: [] as NonNullable<ProfileRequest["tech_stacks"]>,
+        initial: [] as ProfileRequest["tech_stacks"],
         schema: Yup.array()
             .of(Yup.string().trim().max(30))
             .max(10, "기술 스택은 최대 10개까지 등록할 수 있습니다.")

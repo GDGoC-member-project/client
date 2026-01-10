@@ -77,12 +77,12 @@ function BasicsFields() {
                 required
             />
 
-            <TextChipsInput
+            {/* <TextChipsInput
                 label="기술 스택"
                 name="techStacks"
                 placeholder=", 로 구분하여 입력해 주세요"
                 error={te("techStacks")}
-            />
+            /> */}
         </>
     );
 }
