@@ -2,6 +2,10 @@ import type { ProfileRequest } from "@/types/profile";
 import { Part, Role, SocialIcon } from "@/types/profile";
 import * as Yup from "yup";
 
+const isEmail = (value?: string) => !!value && Yup.string().email().isValidSync(value);
+
+const isUrl = (value?: string) => !!value && Yup.string().url().isValidSync(value);
+
 const fields = {
     name: {
         initial: "",
@@ -73,10 +77,15 @@ const fields = {
             .of(
                 Yup.object({
                     icon: Yup.mixed<SocialIcon>().oneOf(Object.values(SocialIcon)).optional(),
+
                     url: Yup.string()
                         .trim()
-                        .url("링크 URL 형식이 올바르지 않습니다.")
-                        .required("링크 URL은 필수입니다."),
+                        .required("링크 URL은 필수입니다.")
+                        .test(
+                            "url-or-email",
+                            "유효한 URL 또는 이메일 주소를 입력해주세요.",
+                            (value) => isUrl(value) || isEmail(value)
+                        ),
                 })
             )
             .max(3, "소셜 링크는 최대 3개까지 등록할 수 있습니다.")
