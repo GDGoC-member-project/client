@@ -2,6 +2,7 @@ import { Suspense, use } from "react";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import BuildTogetherSection from "./section";
 import { getProjectsPromise } from "./resource";
+import BuildTogetherSkeleton from "./skeleton";
 
 function BuildTogetherResolved() {
     const projects = use(getProjectsPromise());
@@ -16,8 +17,8 @@ export default function BuildTogether() {
                 <p className="font-head02-regular">지금 참여할 수 있는 프로젝트를 만나보세요.</p>
             </div>
 
-            <ErrorBoundary fallback={null}>
-                <Suspense fallback={null}>
+            <ErrorBoundary fallback={<BuildTogetherSkeleton />}>
+                <Suspense fallback={<BuildTogetherSkeleton />}>
                     <BuildTogetherResolved />
                 </Suspense>
             </ErrorBoundary>
