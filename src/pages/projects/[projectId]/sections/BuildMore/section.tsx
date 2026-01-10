@@ -1,7 +1,7 @@
 import ProjectCard from "@/components/ProjectCard";
-import type { BuildTogetherSectionProps } from "./types";
+import type { BuildMoreSectionProps } from "./types";
 
-export default function BuildTogetherSection({ projects }: BuildTogetherSectionProps) {
+export default function BuildMoreSection({ projects }: BuildMoreSectionProps) {
     const left = projects.filter((_, i) => i % 2 === 0);
     const right = projects.filter((_, i) => i % 2 === 1);
 

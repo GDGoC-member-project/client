@@ -1,6 +1,6 @@
 import ProjectCardSkeleton from "@/components/ProjectCard/Skeleton";
 
-export default function BuildTogetherSkeleton() {
+export default function BuildMoreSkeleton() {
     const left = [0, 2];
     const right = [1, 3];
 
