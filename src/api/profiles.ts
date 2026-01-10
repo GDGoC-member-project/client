@@ -85,3 +85,17 @@ export async function uploadProfileImage(file: File): Promise<string> {
     if (!json.data) throw new Error("No data found after profile image upload");
     return json.data.profile_image_url;
 }
+
+export function isEmptyProfile(profile: ProfileResponse): boolean {
+    return (
+        !profile.name &&
+        !profile.bio &&
+        !profile.profile_image_url &&
+        !profile.generation &&
+        !profile.part &&
+        !profile.role &&
+        !profile.department &&
+        (!profile.tech_stacks || profile.tech_stacks.length === 0) &&
+        (!profile.social_links || profile.social_links.length === 0)
+    );
+}
