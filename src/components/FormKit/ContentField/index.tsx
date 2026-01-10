@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect } from "react";
 import { useField } from "formik";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -12,14 +12,7 @@ import TaskList from "@tiptap/extension-task-list";
 import TaskItem from "@tiptap/extension-task-item";
 import Highlight from "@tiptap/extension-highlight";
 import { ContentToolbar } from "./components/Toolbar";
-
-type Props = {
-    name: string;
-    placeholder?: string;
-    editable?: boolean;
-    className?: string;
-    onImageUpload?: (file: File) => Promise<string>;
-};
+import type { ContentFieldProps } from "./types";
 
 export default function ContentField({
     name,
@@ -27,9 +20,8 @@ export default function ContentField({
     editable = true,
     className,
     onImageUpload,
-}: Props) {
-    const [field, meta, helpers] = useField<any>(name);
-    const initial = useRef(field.value ?? { type: "doc", content: [] });
+}: ContentFieldProps) {
+    const [field, meta, helpers] = useField<string>(name);
 
     const editor = useEditor({
         editable,
@@ -57,19 +49,22 @@ export default function ContentField({
             TaskList,
             TaskItem.configure({ nested: true }),
         ],
-        content: initial.current,
+        content: field.value || "",
         onUpdate: ({ editor }) => {
-            helpers.setValue(editor.getJSON());
+            const value = editor.isEmpty ? "" : editor.getHTML();
+            helpers.setValue(value);
             if (!meta.touched) helpers.setTouched(true, false);
         },
     });
 
     useEffect(() => {
-        if (!editor) return;
-        const next = field.value ?? { type: "doc", content: [] };
-        const current = editor.getJSON();
-        if (JSON.stringify(current) !== JSON.stringify(next)) {
-            editor.commands.setContent(next);
+        if (!editor || !field.value) return;
+
+        const currentEditorHtml = editor.getHTML();
+        const nextFormikValue = field.value;
+
+        if (nextFormikValue !== currentEditorHtml) {
+            editor.commands.setContent(nextFormikValue, { emitUpdate: false });
         }
     }, [field.value, editor]);
 
